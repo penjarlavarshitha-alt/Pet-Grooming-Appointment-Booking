@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dog Day Care — FURSTAY</title>
+
+<style>
+:root{
+  --accent:#358de5;
+  --accent-2:#358de5;
+  --muted:#f8f2f2;
+  --text:#222;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#dbd7d7;
+  color:var(--text);
+}
+
+/* HERO */
+.hero{
+  height:60vh;
+  background:url("https://images.unsplash.com/photo-1548199973-03cce0bbc87b") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:40px;
+}
+
+/* SECTION */
+.section{
+  padding:40px 20px;
+  text-align:center;
+}
+
+.card-container{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.card{
+  width:250px;
+  background:var(--muted);
+  padding:20px;
+  border-radius:10px;
+}
+
+/* BUTTON */
+.btn{
+  background:var(--accent-2);
+  color:rgb(240, 240, 240);
+  padding:10px 20px;
+  border-radius:20px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:10px;
+  cursor:pointer;
+}
+
+/* MODAL FORM */
+.modal{
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:100;
+}
+
+.modal-content{
+  background:white;
+  padding:30px 20px;
+  border-radius:10px;
+  width:90%;
+  max-width:500px;
+  text-align:left;
+}
+
+.modal-content h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.form-step{
+  display:none;
+}
+
+.form-step.active{
+  display:block;
+}
+
+label{
+  display:block;
+  margin-bottom:10px;
+}
+
+input[type="text"], input[type="tel"]{
+  width:100%;
+  padding:8px;
+  margin-bottom:15px;
+  border-radius:5px;
+  border:1px solid #ccc;
+}
+
+input[type="checkbox"], input[type="radio"]{
+  margin-right:10px;
+}
+
+.next-btn, .prev-btn{
+  background:var(--accent-2);
+  color:white;
+  border:none;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.prev-btn{
+  background:gray;
+}
+
+#submitBtn{
+  background:var(--accent);
+}
+
+.success-msg{
+  text-align:center;
+  font-size:18px;
+  color:green;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Fun & Safe Dog Day Care</h1>
+    <p>Happy dogs while you're away 🐶</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <h2 style="color:var(--accent)">What We Offer</h2>
+
+  <div class="card-container">
+    <div class="card">
+      <h3>Play Time</h3>
+      <p>Supervised group play for social and active dogs.</p>
+    </div>
+
+    <div class="card">
+      <h3>Feeding Care</h3>
+      <p>Timely meals and fresh water provided.</p>
+    </div>
+
+    <div class="card">
+      <h3>Rest & Relax</h3>
+      <p>Comfortable space for naps and quiet time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TIMINGS -->
+<div class="section">
+  <h2 style="color:var(--accent)">Timings</h2>
+  <p><b>Morning:</b> 8:00 AM – 1:00 PM</p>
+  <p><b>Evening:</b> 2:00 PM – 7:00 PM</p>
+</div>
+
+<!-- PRICING -->
+<div class="section">
+  <h2 style="color:var(--accent)">Pricing</h2>
+  <p><b>Half Day:</b> ₹300</p>
+  <p><b>Full Day:</b> ₹600</p>
+
+  <button class="btn" id="bookNowBtn">Book Now</button>
+</div>
+
+<!-- CONTACT -->
+<div class="section" style="background:var(--muted)">
+  <h2>Contact Us</h2>
+  <p>📞 +91 98765 43210</p>
+  <p>📧 daycare@furstay.com</p>
+</div>
+
+<!-- MODAL FORM -->
+<div class="modal" id="bookingModal">
+  <div class="modal-content">
+    <h2>Dog Day Care Booking</h2>
+
+    <!-- STEP 1: Select Services -->
+    <div class="form-step active">
+      <label><input type="checkbox" name="service" value="Half Day"> Half Day (₹300)</label>
+      <label><input type="checkbox" name="service" value="Full Day"> Full Day (₹600)</label>
+      <label>Preferred Time: <input type="text" placeholder="E.g., 8 AM - 1 PM" id="timeInput" required></label>
+      <label>Phone Number: <input type="tel" placeholder="Enter your phone" id="phoneInput" required></label>
+      <button class="next-btn" onclick="nextStep()">Next</button>
+    </div>
+
+    <!-- STEP 2: Payment -->
+    <div class="form-step">
+      <label><input type="radio" name="payment" value="Cash"> Cash</label>
+      <label><input type="radio" name="payment" value="UPI"> UPI</label>
+      <label>UPI ID (if selected UPI): <input type="text" id="upiInput" placeholder="example@upi"></label>
+      <button class="prev-btn" onclick="prevStep()">Previous</button>
+      <button class="next-btn" onclick="submitBooking()">Submit Booking</button>
+    </div>
+
+    <!-- STEP 3: Success Message -->
+    <div class="form-step" id="successStep">
+      <p class="success-msg">Booking Submitted Successfully! Redirecting to home...</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// Open modal
+document.getElementById('bookNowBtn').onclick = function(){
+  document.getElementById('bookingModal').style.display = 'flex';
+}
+
+// Multi-step form logic
+let currentStep = 0;
+const steps = document.querySelectorAll('.form-step');
+
+function showStep(index){
+  steps.forEach((step)=> step.classList.remove('active'));
+  steps[index].classList.add('active');
+}
+
+function nextStep(){
+  // Step 1 validation
+  if(currentStep === 0){
+    const selectedServices = Array.from(document.querySelectorAll('input[name="service"]:checked'));
+    const time = document.getElementById('timeInput').value.trim();
+    const phone = document.getElementById('phoneInput').value.trim();
+
+    if(selectedServices.length === 0){
+      alert("Please select at least one service!");
+      return;
+    }
+
+    if(time === ""){
+      alert("Please fill the Preferred Time!");
+      return;
+    }
+
+    if(phone === ""){
+      alert("Please fill the Phone Number!");
+      return;
+    }
+  }
+
+  currentStep++;
+  if(currentStep >= steps.length) currentStep = steps.length - 1;
+  showStep(currentStep);
+}
+
+function prevStep(){
+  currentStep--;
+  if(currentStep < 0) currentStep = 0;
+  showStep(currentStep);
+}
+
+// Submit booking
+function submitBooking(){
+  const selectedServices = Array.from(document.querySelectorAll('input[name="service"]:checked')).map(i=>i.value);
+  const phone = document.getElementById('phoneInput').value.trim();
+  const payment = document.querySelector('input[name="payment"]:checked')?.value;
+
+  if(selectedServices.length === 0 || !phone || !payment){
+    alert("Please fill all required fields!");
+    return;
+  }
+
+  // Show success message
+  currentStep = 2;
+  showStep(currentStep);
+
+  // Auto redirect after 3 seconds
+  setTimeout(()=>{ 
+    document.getElementById('bookingModal').style.display='none';
+    window.location.href = 'index.html';
+  },3000);
+}
+</script>
+
+</body>
+</html>

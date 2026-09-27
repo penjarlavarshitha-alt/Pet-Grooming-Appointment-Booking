@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Dog Training — FURSTAY</title>
+
+<style>
+:root{
+--accent:#358de5;
+--muted:#f8f2f2;
+--card-bg:#ffffff;
+--text:#222;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:"Segoe UI",Roboto,Arial,sans-serif;
+color:var(--text);
+background:#fff;
+line-height:1.5;
+}
+
+/* HERO */
+.hero{
+height:68vh;
+min-height:520px;
+background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+url("https://i.pinimg.com/1200x/3a/0f/3a/3a0f3a5d659fda619d8913948e15b0b4.jpg");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+}
+
+.hero-inner{text-align:center;color:white;padding:28px;max-width:1000px;}
+.hero h1{font-size:42px;margin-bottom:14px;text-shadow:0 2px 10px rgba(0,0,0,0.4);}
+.hero p{font-size:18px;margin-bottom:18px;}
+
+.btn{
+background:transparent;
+border:2px solid white;
+color:white;
+padding:10px 18px;
+text-decoration:none;
+border-radius:6px;
+transition: all 0.3s ease;
+cursor: pointer;
+display: inline-block;
+}
+
+.btn:hover{background: white; color: var(--text);}
+
+/* MAIN CONTENT */
+.wrap{max-width:1150px;margin:30px auto;padding:0 20px;}
+.intro{background:var(--muted);padding:36px 20px;border-radius:8px;text-align:center;}
+.intro h2{color:var(--accent);font-size:30px;margin-bottom:10px;}
+
+/* FEATURES GRID */
+.features{display:grid;grid-template-columns:1fr 420px 1fr;gap:28px;align-items:center;margin-top:34px;}
+.feature{padding:16px 0;border-bottom:1px solid #eee;}
+.feature h3{color:var(--accent);font-size:18px;margin-bottom:6px;}
+.feature p{font-size:14px;color:#666;}
+.center-image img{width:100%;max-width:420px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.12);display: block;}
+
+/* PRICING */
+.pricing{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:36px;}
+.price-card{width:320px;background:white;border:1px solid #eee;border-radius:10px;overflow:hidden;display: flex;flex-direction: column;}
+.price-header{background:#333;color:white;padding:14px;font-weight:700;text-align: center;}
+.price-body{padding:18px;text-align: center;flex-grow: 1;}
+.price-amount{font-size:20px;font-weight:800;color:var(--accent);margin: 10px 0;}
+
+.btn-details{
+background: var(--accent);
+color: white;
+border: none;
+padding: 8px 15px;
+border-radius: 4px;
+cursor: pointer;
+font-size: 14px;
+margin-top: 10px;
+}
+
+/* MODAL STYLES */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; top: 0;
+  width: 100%; height: 100%; 
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; 
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 550px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  right: 20px; top: 15px;
+  font-size: 28px; font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content h3 { color: var(--accent); margin-bottom: 15px; }
+.modal-info-item { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+.modal-info-item strong { display: block; color: #333; margin-bottom: 4px; }
+
+/* TRAINERS & GALLERY */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;}
+.card{background:white;border-radius:12px;padding:18px;border:1px solid #eee;}
+.card h4{color:var(--accent);margin-bottom:10px;}
+.trainers{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;justify-content:center;}
+.trainer{width:220px;background:white;border:1px solid #eee;border-radius:12px;padding:14px;text-align:center;}
+.trainer img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:10px;}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px;}
+.gallery img{width:100%;height:150px;object-fit:cover;border-radius:8px;}
+ @media (max-width: 900px) {
+    .features { grid-template-columns: 1fr; text-align: center; }
+    .center-image { order: -1; margin: 0 auto; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <div class="hero-inner">
+        <h1>Train with Kindness — Confident, Calm Dogs</h1>
+        <p>Positive, science-backed dog training for puppies and adults.</p>
+        <a class="btn" href="#contact">Book Free Consult</a>
+    </div>
+</section>
+
+<main class="wrap">
+    <section class="intro">
+        <h2>Professional Reward-Based Training</h2>
+        <p>All training is reward-based and force-free.</p>
+    </section>
+
+    <section id="pricing" style="text-align:center;margin-top:40px">
+        <h3>Training Packages</h3>
+        <div class="pricing">
+            
+            <div class="price-card">
+                <div class="price-header">Drop-in Lesson</div>
+                <div class="price-body">
+                    <p>One hour private session.</p>
+                    <div class="price-amount">₹800</div>
+                    <button class="btn-details" onclick="openModal('dropin')">View Details</button>
+                </div>
+            </div>
+
+            <div class="price-card" style="border-color: var(--accent);">
+                <div class="price-header" style="background: var(--accent);">8 Week Course</div>
+                <div class="price-body">
+                    <p>Weekly lessons.</p>
+                    <div class="price-amount">₹5000</div>
+                    <button class="btn-details" onclick="openModal('eightweek')">View Details</button>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div class="price-header">Behavior Package</div>
+                <div class="price-body">
+                    <p>Advanced training.</p>
+                    <div class="price-amount">₹7500</div>
+                    <button class="btn-details" onclick="openModal('behavior')">View Details</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body-content">
+                </div>
+        </div>
+    </div>
+
+    <section class="grid-2" id="programs" style="margin-top:60px;">
+        <div class="card">
+            <h4>Training Types</h4>
+            <ul style="padding-left: 20px;">
+                <li>Positive Reinforcement</li>
+                <li>Clicker Training</li>
+                <li>Counter Conditioning</li>
+                <li>Operant Conditioning</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4>Sample 8 Week Plan</h4>
+            <p>Weeks 1-2: Basic commands</p>
+            <p>Weeks 3-4: Recall training</p>
+            <p>Weeks 5-6: Behavior correction</p>
+            <p>Weeks 7-8: Real world practice</p>
+        </div>
+    </section>
+
+    <section id="trainers" style="text-align:center;margin-top:40px">
+        <h3>Meet Our Trainers</h3>
+        <div class="trainers">
+            <div class="trainer">
+                <img src="https://i.pinimg.com/1200x/fa/65/30/fa6530d8531d0fa0f34c2199df25af71.jpg" alt="Riya">
+                <h5>Riya</h5>
+                <p class="small">Puppy Specialist</p>
+            </div>
+            <div class="trainer">
+                <img src="https://i.pinimg.com/736x/01/40/bc/0140bcf030aa69d349837eda9cad16c9.jpg" alt="Arjun">
+                <h5>Arjun</h5>
+                <p class="small">Behavior Expert</p>
+            </div>
+            <div class="trainer">
+                <img src="https://i.pinimg.com/736x/4d/18/17/4d1817f6e0a366f62e4babc2c8226896.jpg" alt="Neha">
+                <h5>Neha</h5>
+                <p class="small">Agility Coach</p>
+            </div>
+        </div>
+    </section>
+    <footer id="contact" style="margin:50px 0">
+        <div class="card" style="text-align: center;">
+            <h4>Book a Consultation</h4>
+            <p>Email: train@furstay.example | Phone: +91 98765 43210</p>
+        </div>
+    </footer>
+</main>
+
+<script>
+    const modalData = {
+        'dropin': `
+            <h3>Drop-in Lesson Details</h3>
+            <div class="modal-info-item"><strong>Focus:</strong> A single, 60-minute intensive session to solve one specific problem.</div>
+            <div class="modal-info-item"><strong>Best for:</strong> Jumping on guests, door bolting, or a quick obedience "tune-up."</div>
+            <div class="modal-info-item"><strong>Includes:</strong> One actionable summary email after the session.</div>
+        `,
+        'eightweek': `
+            <h3>8-Week Course Details</h3>
+            <div class="modal-info-item"><strong>Duration:</strong> Sitting for 5 seconds vs. 1 minute.</div>
+            <div class="modal-info-item"><strong>Distance:</strong> Staying while you are 1 foot away vs. 20 feet away.</div>
+            <div class="modal-info-item"><strong>Distraction:</strong> Listening in a quiet living room vs. a busy park.</div>
+            <div class="modal-info-item"><strong>Curriculum:</strong> From basic "Sit" to advanced off-leash recall.</div>
+        `,
+        'behavior': `
+            <h3>Behavior Package Details</h3>
+            <div class="modal-info-item"><strong>Assessment-First:</strong> We identify the root cause (fear, anxiety) of the behavior.</div>
+            <div class="modal-info-item"><strong>Emotional Work:</strong> Using counter-conditioning to change how your dog feels about triggers.</div>
+            <div class="modal-info-item"><strong>Agency:</strong> Teaching self-control so the dog chooses to be calm.</div>
+            <div class="modal-info-item"><strong>Support:</strong> Intensive 1-on-1 coaching for complex issues like aggression.</div>
+        `
+    };
+
+    function openModal(type) {
+        document.getElementById("modal-body-content").innerHTML = modalData[type];
+        document.getElementById("infoModal").style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById("infoModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById("infoModal");
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>

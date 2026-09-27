@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - FurStay</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET & GLOBAL */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f6f8;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px);
+            border-radius: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #f3e7d9;
+            padding: 5px;
+            border-radius: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(to right, #f6a54b, #fcd9a3);
+        }
+
+        .auth {
+            display: flex;
+            gap: 10px;
+        }
+
+        .login {
+            background: #cfe7ef;
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .signup {
+            background: linear-gradient(to right, #4facfe, #00c6ff);
+            padding: 8px 18px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-spacer {
+            height: 120px;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-exact {
+            width: 100%;
+            background: #f3f3f3;
+            padding: 60px 6%;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .left h3 {
+            color: #2aa7df;
+            font-size: 26px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .left h1 {
+            font-size: 42px;
+            margin: 5px 0 0;
+            font-weight: 700;
+        }
+
+        .right p {
+            font-size: 24px;
+            color: #6f8a99;
+            margin-top: 10px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 50px;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            margin: auto;
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            margin: 0 auto 10px;
+            position: relative;
+        }
+
+        .eye { border: 3px solid #2aa7df; border-radius: 50%; }
+        .eye::after {
+            content: ""; width: 16px; height: 16px; background: #2aa7df;
+            border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+        }
+
+        .triangle {
+            width: 0; height: 0; border-left: 25px solid transparent;
+            border-right: 25px solid transparent; border-bottom: 45px solid #2aa7df; margin: 0 auto 10px;
+        }
+
+        .target { border: 3px solid #2aa7df; border-radius: 50%; }
+        .target::after {
+            content: ""; width: 14px; height: 14px; border: 3px solid #2aa7df;
+            border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+        }
+
+        .card h3 { font-size: 20px; margin-bottom: 8px; }
+        .card p { font-size: 15px; color: #666; line-height: 1.5; }
+
+        /* WHY CHOOSE SECTION */
+        .why-section {
+            padding: 60px 6%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .why-box {
+            width: 100%;
+            max-width: 1000px;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+
+        .why-left { width: 55%; }
+        .why-title { font-size: 26px; font-weight: 700; }
+        .why-title span { color: #4fc3f7; }
+        .underline { width: 60px; height: 4px; background: orange; margin: 6px 0 15px; }
+        .why-text { font-size: 15px; color: #444; line-height: 1.6; }
+        .why-left ul { padding-left: 18px; }
+        .why-left li { margin-bottom: 8px; }
+        .why-right { width: 40%; text-align: center; }
+        .why-right img { width: 150px; border-radius: 10px; }
+        .logo-text { font-weight: 700; font-size: 26px; margin-top: 10px; }
+
+        /* ===== REVIEWS SECTION ===== */
+        .reviews-exact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 70px 6%;
+            background: #efefef;
+            flex-wrap: wrap;
+        }
+
+        .reviews-left { width: 30%; }
+        .reviews-left h1 { font-size: 40px; line-height: 1.2; margin-bottom: 15px; }
+        .reviews-left p { color: #555; font-size: 16px; line-height: 1.6; }
+
+        .reviews-wrapper {
+            width: 65%;
+            overflow: hidden;
+            margin-left: auto;
+        }
+
+        .reviews-slider {
+            display: flex;
+            gap: 25px;
+            transition: transform 0.5s ease;
+        }
+
+        .review-card {
+            flex: 0 0 48%; /* show 2 cards at a time */
+            background: #e6d7b2;
+            padding: 20px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .review-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #ddd;
+            margin: 10px 0;
+        }
+
+        .stars { color: #f4b400; margin-top: 8px; font-size: 18px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .reviews-left { width: 100%; margin-bottom: 20px; }
+            .reviews-wrapper { width: 100%; }
+            .review-card { flex: 0 0 100%; } /* show 1 card at a time on mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">🐾 <span>FURSTAY</span></div>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Service</a>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+
+        <div class="auth">
+            <a href="loginpage.html" class="login">Login</a>
+            <a href="signup.html" class="signup">Sign Up</a>
+        </div>
+    </header>
+
+    <div class="nav-spacer"></div>
+
+    <section class="about-exact">
+        <div class="top">
+            <div class="left">
+                <h3>Since 2002</h3>
+                <h1>We are 24 years old!</h1>
+            </div>
+            <div class="right">
+                <p>We have reinvented our mission and goals</p>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="icon eye"></div>
+                <h3>Vision</h3>
+                <p>Empower people to mitigate animal suffering exponentially.</p>
+            </div>
+            <div class="card">
+                <div class="icon triangle"></div>
+                <h3>Mission</h3>
+                <p>Focus all resources on street animal birth control, vaccinations and animal welfare training.</p>
+            </div>
+            <div class="card">
+                <div class="icon target"></div>
+                <h3>Goal</h3>
+                <p>Reduce animal suffering in the most sustainable and impactful way.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-section">
+        <div class="why-box">
+            <div class="why-left">
+                <div class="why-title">Why Choose <span>Furstay</span></div>
+                <div class="underline"></div>
+                <p class="why-text">
+                    In-home pet sitting works best — and that’s exactly what Furstay provides.
+                    Pets are happiest in the place they know best — their home.
+                </p>
+                <ul>
+                    <li>No crates, travel, or unfamiliar spaces</li>
+                    <li>Ideal for senior pets and anxious animals</li>
+                    <li>Same routines, same home comfort</li>
+                    <li>Expert sitters across Mumbai & Bangalore</li>
+                </ul>
+            </div>
+            <div class="why-right">
+                <img src="https://images.ctfassets.net/05ujhgtgjmpu/1Ls2CNRmkQuiJnKtoHtTgb/893924b702da0656d4b8e4a66311bcb6/golden-retriever-dog-breed-info.jpg" alt="Dog">
+                <div class="logo-text">FURSTAY</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="reviews-exact">
+        <div class="reviews-left">
+            <h1>What other<br>pet parents<br>are saying</h1>
+            <p>Entrust us with your furry family, and we promise a home filled with kindness, happiness, and positive care.</p>
+        </div>
+
+        <div class="reviews-wrapper">
+            <div class="reviews-slider" id="reviewSlider">
+                <div class="review-card">
+                    <p>"Quality Service from Furstay Team. Definitely will go for it again 10/10."</p>
+                    <img src="https://i.pravatar.cc/150?img=12">
+                    <h3>Adam Lauren</h3>
+                    <span>Engineer</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <p>"Finally, a pet care service I can trust completely. Thank you, FurStay!"</p>
+                    <img src="https://i.pravatar.cc/150?img=32">
+                    <h3>Sonia Ben</h3>
+                    <span>Data Analyst</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <p>"My dog loved their stay! Highly recommend FurStay services."</p>
+                    <img src="https://i.pravatar.cc/150?img=45">
+                    <h3>Rachel Green</h3>
+                    <span>Designer</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <p>"Very professional and caring. My cat felt at home."</p>
+                    <img src="https://i.pinimg.com/736x/ca/95/db/ca95db6f42ece668dc3b6cbc0ff7b838.jpg">
+                    <h3>Michael Scott</h3>
+                    <span>Manager</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <p>"Excellent pet sitting, prompt and reliable. Thank you FurStay!"</p>
+                    <img src="https://i.pravatar.cc/150?img=5">
+                    <h3>Monica Bell</h3>
+                    <span>Chef</span>
+                    <div class="stars">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const slider = document.getElementById('reviewSlider');
+        const totalCards = slider.children.length;
+        let index = 0;
+
+        function slideReviews() {
+            // Show 2 cards at a time
+            const maxIndex = totalCards - 2;
+            index += 2;
+            if(index > maxIndex) index = 0; // loop back to start
+            const cardWidth = slider.querySelector('.review-card').offsetWidth + 25; // card + gap
+            slider.style.transform = `translateX(-${index * cardWidth}px)`;
+        }
+
+        setInterval(slideReviews, 2000); // auto-slide every 2 sec
+    </script>
+</body>
+</html>

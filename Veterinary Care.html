@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veterinary Care</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:url('https://i.pinimg.com/1200x/c0/bb/52/c0bb52c34e37087c54cb22c8bc195415.jpg') center/cover no-repeat;
+}
+
+/* OVERLAY */
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:-1;
+}
+
+/* SECTION */
+.vet-section{
+    padding:80px 20px;
+    text-align:center;
+    color:#fff;
+}
+
+.vet-section h2{
+    font-size:36px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    max-width:600px;
+    margin:40px auto;
+}
+
+/* DISPLAY BOXES */
+.feature-box{
+    background:rgba(255,255,255,0.9);
+    padding:25px;
+    border-radius:15px;
+}
+
+.feature-box h4{
+    color:#000;
+}
+
+/* BUTTON */
+.main-btn{
+    padding:12px 30px;
+    background:#ff6b6b;
+    border:none;
+    border-radius:25px;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* POPUP */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    visibility:hidden;
+    opacity:0;
+    transition:0.3s;
+}
+
+.popup.active{
+    visibility:visible;
+    opacity:1;
+}
+
+/* FORM */
+.popup-content{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    width:320px;
+    text-align:left;
+}
+
+.popup-content h3{
+    text-align:center;
+}
+
+/* INPUTS */
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+/* CHECKBOX */
+.services{
+    margin:10px 0;
+}
+
+.services label{
+    display:block;
+    margin:5px 0;
+}
+
+/* BUTTONS */
+.btn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:20px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.book{
+    background:#ff6b6b;
+    color:#fff;
+}
+
+.close{
+    background:#333;
+    color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<section class="vet-section">
+    <h2>Veterinary Care</h2>
+    <p>Select services and book appointment</p>
+
+    <!-- DISPLAY ONLY -->
+    <div class="features">
+        <div class="feature-box"><h4>Health Checkups</h4></div>
+        <div class="feature-box"><h4>Vaccinations</h4></div>
+        <div class="feature-box"><h4>Emergency Care</h4></div>
+        <div class="feature-box"><h4>Diet Consultation</h4></div>
+    </div>
+
+    <!-- MAIN BUTTON -->
+    <button class="main-btn" onclick="openForm()">Book Now</button>
+</section>
+
+<!-- POPUP FORM -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h3>Book Appointment</h3>
+
+        <input type="text" placeholder="Your Name" required>
+        <input type="text" placeholder="Pet Name" required>
+        <input type="date" required>
+
+        <div class="services">
+            <strong>Select Services:</strong>
+            <label><input type="checkbox"> Health Checkups</label>
+            <label><input type="checkbox"> Vaccinations</label>
+            <label><input type="checkbox"> Emergency Care</label>
+            <label><input type="checkbox"> Diet Consultation</label>
+        </div>
+
+        <button class="btn book" onclick="bookNow()">Book Now</button>
+        <button class="btn close" onclick="closeForm()">Cancel</button>
+    </div>
+</div>
+
+<script>
+function openForm(){
+    document.getElementById("popup").classList.add("active");
+}
+
+function closeForm(){
+    document.getElementById("popup").classList.remove("active");
+}
+
+function bookNow(){
+    alert("✅ Appointment Booked Successfully!");
+    closeForm();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - FURSTAY</title>
+
+<style>
+:root{
+  --accent:#c62828;
+  --accent-2:#e53935;
+  --muted:#f8f2f2;
+}
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:var(--muted);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.container{
+  background:white;
+  padding:30px;
+  border-radius:10px;
+  width:300px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+  color:var(--accent);
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:var(--accent-2);
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
+#message{
+  margin-top:10px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Login</h2>
+
+  <form onsubmit="return validateLogin()">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="message"></p>
+</div>
+
+<script>
+function validateLogin(){
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let message = document.getElementById("message");
+
+  if(email === "" || password === ""){
+    message.style.color = "red";
+    message.textContent = "Please don't leave any details empty!";
+    return false;
+  } else {
+    message.style.color = "green";
+    message.textContent = "Login Successful! Redirecting...";
+
+    setTimeout(function(){
+      window.location.href = "index.html";
+    }, 1500);
+
+    return false;
+  }
+}
+</script>
+
+</body>
+</html>

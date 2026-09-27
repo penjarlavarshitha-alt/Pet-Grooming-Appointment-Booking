@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Grooming - Jupiter Pet Hospital</title>
+    <style>
+        :root {
+            --primary-red: #659ce9;
+            --soft-pink: #fdf2f2;
+            --text-dark: #333;
+            --text-grey: #666;
+            --border-light: #eee;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            border-bottom: 1px solid var(--border-light);
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .call-btn {
+            background: var(--primary-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--soft-pink);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            color: var(--primary-red);
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .membership-banner {
+            background: var(--primary-red);
+            color: white;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Services Grid */
+        .services-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding: 40px 10px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .service-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .service-item h3 { margin: 0; color: #a13d3d; font-size: 1.2rem; }
+        .service-item p { margin: 5px 0; font-size: 0.9rem; color: var(--text-grey); }
+
+        /* Pricing Table */
+        .pricing-section {
+            background: #fff;
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: left;
+            position: relative;
+        }
+
+        .price-card.featured { border: 2px solid var(--primary-red); }
+
+        .price-card h4 {
+            background: #444;
+            color: white;
+            padding: 10px;
+            margin: -20px -20px 20px -20px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+
+        .price-list { list-style: none; padding: 0; font-size: 0.9rem; }
+        .price-list li { border-bottom: 1px solid #eee; padding: 8px 0; }
+
+        /* Footer Sticky Bar */
+        .footer-cta {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: var(--primary-red);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .footer-cta a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .dog-image-bg {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            margin: 20px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="tel:+" class="call-btn">Call Now 📞</a>
+    </header>
+
+    <section class="hero">
+        <h1>Pet Grooming Made affordable.</h1>
+        <div class="membership-banner">Save More, Groom More – Membership Starts at Just ₹500/Year!</div>
+        <h2>PROFESSIONAL CARE, FROM NOSE TO TAIL.</h2>
+    </section>
+
+    <div class="services-container">
+        <div class="service-column">
+            <div class="service-item"><h3>Full Bath</h3><p>Gentle shampoo & blow dry.</p></div>
+            <div class="service-item"><h3>Hair Trimming</h3><p>Breed-specific stylish cuts.</p></div>
+            <div class="service-item"><h3>Nail Clipping</h3><p>Safe, quick & painless trimming.</p></div>
+        </div>
+        <div class="service-column">
+            <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=400" alt="Grooming" style="width:100%; border-radius:10px;">
+        </div>
+        <div class="service-column">
+            <div class="service-item"><h3>Tooth Cleaning</h3><p>Fresh breath & gums.</p></div>
+            <div class="service-item"><h3>Anal Gland Cleaning</h3><p>Quick, safe & relief.</p></div>
+            <div class="service-item"><h3>De-Matting</h3><p>Removes tough tangles.</p></div>
+        </div>
+    </div>
+
+    <section class="pricing-section">
+        <h3>Comprehensive Grooming Prices.</h3>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h4>Grooming Prices</h4>
+                <p>Without Membership</p>
+                <ul class="price-list">
+                    <li>Bath: Rs. 500/-</li>
+                    <li>Ear clean: Rs. 100/-</li>
+                    <li>Nail trim: Rs. 100/-</li>
+                    <li>Paws trim: Rs. 100/-</li>
+                    <li>Hair cut: Rs. 800/-</li>
+                </ul>
+            </div>
+            <div class="price-card featured">
+                <h4>Grooming Package</h4>
+                <p>For Members</p>
+                <p><strike>Rs. 1800</strike> <strong>Rs. 1500/-</strong></p>
+                <ul class="price-list">
+                    <li>Bath, Ear clean, Nail trim, Paws Trim, Hair cut</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-cta">
+        <a href="#">GET QUOTE</a>
+        <a href="#">CALL 24/7</a>
+        <a href="#">WHATSAPP</a>
+    </div>
+
+    <div style="margin-bottom: 60px;"></div> </body>
+</html>
